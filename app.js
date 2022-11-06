@@ -11,9 +11,9 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 
-const hiddenEelements = document.querySelectorAll('.hidden');
+const hiddenElements = document.querySelectorAll('.hidden');
 
-hiddenEelements.forEach((e1) => observer.observe(e1));
+hiddenElements.forEach((e1) => observer.observe(e1));
 
 
 // CREDIT TO https://codepen.io/falldowngoboone/pen/PwzPYv FOR THE CURSOR TRAIL CODE
@@ -55,8 +55,9 @@ for (var i = 0; i < 12; i++) {
 function draw() {
  // Make sure the mouse position is set everytime
    // draw() is called.
- var x = mouse.x,
-     y = mouse.y;
+ var x = mouse.x + 1,
+     y = mouse.y + 1;
+ // adding 1 so that I can click on links (otherwise the dot on cursor will get in the way)
  
  // This loop is where all the 90s magic happens
  dots.forEach(function(dot, index, dots) {
