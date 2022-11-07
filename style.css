@@ -47,7 +47,7 @@
         opacity: 0;
         filter: blur(5px);
         transform: translateX(-100%);
-        transition: all 1.5s;
+        transition: all 1.75s;
         margin: 5px;
     }
 
@@ -62,23 +62,31 @@
     }
 
     .logo:nth-child(2) {
-        transition-delay: 200ms;
+        transition-delay: 150ms;
     }
 
     .logo:nth-child(3) {
-        transition-delay: 400ms;
+        transition-delay: 300ms;
     }
 
     .logo:nth-child(4) {
-        transition-delay: 600ms;
+        transition-delay: 450ms;
     }
 
     .logo:nth-child(5) {
-        transition-delay: 800ms;
+        transition-delay: 600ms;
     }
 
     .logo:nth-child(6) {
-        transition-delay: 1000ms;
+        transition-delay: 750ms;
+    }
+
+    .logo:nth-child(7) {
+        transition-delay: 900ms; 
+    }
+
+    .logo:nth-child(8) {
+        transition-delay: 1050ms;
     }
 
     .visit {
@@ -95,6 +103,10 @@
     .icon {
         width: 64px;
         height: 64px;
+    }
+
+    .icon:hover {
+        transform: scale(1.1);
     }
 
 
