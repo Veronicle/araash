@@ -88,7 +88,7 @@ function animate() {
 // And get it started by calling animate().
 animate();
 
-const text = "18, Wharton, Interning at Habit Ventures (Summer) & Arbit, Currently Building";
+const text = "18 @ Wharton / fascinated by finance, sneakers, code, and quantitative problems / currently building";
 const typingDiv = document.getElementById("typing");
 let index = 0;
 const typingSpeed = 50; // milliseconds
