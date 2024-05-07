@@ -87,3 +87,21 @@ function animate() {
 
 // And get it started by calling animate().
 animate();
+
+const text = "18, Wharton, Interning at Habit Ventures & Arbit, Currently Building";
+const typingDiv = document.getElementById("typing");
+let index = 0;
+const typingSpeed = 50; // milliseconds
+
+function typeLetter() {
+    if (index < text.length) {
+        typingDiv.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeLetter, typingSpeed);
+    } else {
+        typingDiv.classList.add('cursor'); // Add cursor effect at the end
+    }
+}
+
+typingDiv.classList.add('cursor'); // Start with cursor
+setTimeout(typeLetter, typingSpeed); // Start typing effect

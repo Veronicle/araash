@@ -2,8 +2,9 @@
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
 
     body {
-        background-color: #131316;
-        color: #FAF9F6;
+        /* background-image: linear-gradient(to right, #f5f5f5, #e0e0e0) ; */
+        background: #f9f9f9;
+        color: #333;
         font-family: 'Roboto Condensed', sans-serif;
         padding: 0;
         margin: 0;
@@ -12,13 +13,14 @@
     }
 
     h1 {
-        font-size: 75px;
+        font-size: 60px;
         margin-bottom: 0px;
     }
 
     p {
         margin-top: 10px;
         font-size: 50px;
+        font-weight: bold;
         margin-bottom: 0px;
     }
 
@@ -33,7 +35,7 @@
     }
 
     a:hover {
-        color: yellow;
+        color: navy;
     }
 
     section {
@@ -111,7 +113,7 @@
 
 
     button {
-        background-color: yellow;
+        background-color: navy;
         font-family: 'Roboto Condensed', sans-serif;
         height: 45px;
         width: 120px;
@@ -121,72 +123,67 @@
         margin: 0px;
     }
 
-
-    /*
-    .circleLogo {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Roboto Condensed', sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
+    @keyframes bounce {
+        
+        0%, 100% {
+            transform: translateY(0);
+        }
+        25% {
+            transform: translateY(-10px);
+        }
+        50% {
+            transform: translateY(0);
+        }
+        75% {
+            transform: translateY(-10px);
+        }
     }
 
-    .circle {
-        position: relative;
-        width: 200px ;
-        height: 200px;
-        /*background: #ccc; 
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .typewriter {
+        width: 24ch;
+        animation: typing 4s steps(40, end), blink-caret .25s step-end infinite;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid;
+        font-family: monospace;
+        font-size: 24px;
     }
-
     
-
-    .personLogo {
-        position: absolute;
-        width: 150px;
-        height: 150px;
-        background: url(https://d3ui957tjb5bqd.cloudfront.net/uploads/2016/11/Screen-Shot-2016-11-18-at-5.48.22-PM.jpg);
-        background-size: cover;
-        border-radius: 50%;
-        filter: brightness(1.5) contrast(1.5); 
-
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 40ch }
+    }
+    
+    @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: black }
     }
 
-    .text {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        animation: rotateText 10s linear infinite;
-
-    }
-
-    @keyframes rotateText {
-        0% {
-            transform: rotate(360deg);
-        }
-        100% {
-            transform: rotate(0deg);
-        }
-    }
-
-    .text span {
-        position: absolute;
-        left: 50%;
-        font-size: 1.2em;
-        transform-origin: 0 100px;
-    }
-
-    */
-
+    .bouncy-text {
+        animation-name: bounce;
+        animation-duration: 2.5s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite; /* Loop forever */
+      }
+      
     .trail { /* className for the trail elements */
         position: absolute;
         height: 6px; width: 6px;
         border-radius: 4px;
-        background: yellow;
+        background: #333;
       }
+
+      #typing {
+        font-size: 30px;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .cursor {
+        border-right: 3px solid black;
+        padding-right: 5px;
+        animation: blink 1s step-end infinite;
+    }
+    
+    @keyframes blink {
+        50% { border-color: transparent; }
+    }
