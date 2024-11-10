@@ -1,21 +1,3 @@
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        console.log(entry);
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        }
-        else {
-            entry.target.classList.remove('show');
-        }
-    });
-});
-
-
-const hiddenElements = document.querySelectorAll('.hidden');
-
-hiddenElements.forEach((e1) => observer.observe(e1));
-
-
 // CREDIT TO https://codepen.io/falldowngoboone/pen/PwzPYv FOR THE CURSOR TRAIL CODE
 
 // dots is an array of Dot objects,
@@ -100,6 +82,18 @@ function typeLetter() {
         setTimeout(typeLetter, typingSpeed);
     } else {
         typingDiv.classList.add('cursor'); // Add cursor effect at the end
+        setTimeout(() => {
+            document.getElementById('intro-section').classList.add('shrink');
+            setTimeout(() => {
+                document.querySelectorAll('section.hidden').forEach((section, i) => {
+                    setTimeout(() => {
+                        section.classList.remove('hidden');
+                        section.classList.add('visible');
+                    }, i * 500); // Stagger the appearance of sections
+                });
+                document.querySelector('nav').style.display = 'flex';
+            }, 1000); // 1 second delay after shrinking
+        }, 1000); // 1 second after typing is done
     }
 }
 
