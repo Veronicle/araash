@@ -1,3 +1,5 @@
+/*
+
 // CREDIT TO https://codepen.io/falldowngoboone/pen/PwzPYv FOR THE CURSOR TRAIL CODE
 
 // dots is an array of Dot objects,
@@ -99,3 +101,38 @@ function typeLetter() {
 
 typingDiv.classList.add('cursor'); // Start with cursor
 setTimeout(typeLetter, typingSpeed); // Start typing effect
+*/
+
+// Cursor Trail Effect
+document.addEventListener("mousemove", (e) => {
+  const cursorTrail = document.createElement("div");
+  cursorTrail.className = "cursor-trail";
+  cursorTrail.style.left = `${e.clientX}px`;
+  cursorTrail.style.top = `${e.clientY}px`;
+  document.body.appendChild(cursorTrail);
+
+  // Remove the trail after animation ends
+  setTimeout(() => {
+      cursorTrail.remove();
+  }, 500); // Matches the animation duration
+});
+
+// Fade-in animations for text
+document.addEventListener("DOMContentLoaded", () => {
+  const name = document.getElementById("name");
+  const intros = document.querySelectorAll(".intro");
+
+  // Ensure the name fades in first
+  setTimeout(() => {
+      name.style.opacity = "1";
+      name.style.transform = "translateY(0)";
+  }, 500);
+
+  // Apply fade-in animation to intro text
+  intros.forEach((intro, index) => {
+      setTimeout(() => {
+          intro.style.opacity = "1";
+          intro.style.transform = "translateY(0)";
+      }, 1000 + index * 300);
+  });
+});

@@ -1,3 +1,5 @@
+/*
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
 
 body {
@@ -7,7 +9,7 @@ body {
     padding: 0;
     margin: 0;
     height: 100vh;
-    overflow: hidden; /* Prevent scrolling */
+    overflow: hidden; /* Prevent scrolling 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,7 +58,7 @@ section {
     opacity: 0;
     visibility: hidden;
     position: absolute;
-    top: 100vh; /* Initially place the sections below the viewport */
+    top: 100vh; /* Initially place the sections below the viewport 
 }
 
 section.visible {
@@ -215,5 +217,175 @@ div .dot {
 
     100% {
         transform: scale(1.5) translateY(-50px) rotate(360deg)
+    }
+}
+*/
+/* General Styles */
+
+body {
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    background-color: #050505;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow-x: hidden;
+    cursor: none; /* Hides default cursor */
+}
+
+/* Smooth Transitions */
+* {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Container */
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Name Style */
+.content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    animation: bounce 3s infinite alternate; /* Add subtle bounce */
+    margin: 0;
+}
+
+/* Introductory Text */
+.content .intro {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.8;
+    margin: 10px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInText 2s forwards;
+    animation-delay: 0.8s;
+}
+
+/* Remove blue font color and underline for email and other links */
+a {
+    color: inherit; /* Inherit text color */
+    text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Optional hover effect */
+}
+
+/* Footer Navigation */
+footer {
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+footer nav {
+    display: flex;
+    justify-content: center; /* Center the navigation links */
+    gap: 30px; /* Add space between links */
+}
+
+footer a {
+    font-size: 1rem;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+/* Cursor Trail */
+.cursor-trail {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.7;
+    animation: fadeAndScale 0.5s ease-out forwards;
+}
+
+/* Animations */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeAndScale {
+    0% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2);
+    }
+}
+
+/* Enhanced Background Gradient with Wave-Like Shapes */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(25, 25, 25, 0.8), #050505 80%), 
+                linear-gradient(135deg, #151515, #0a0a0a 40%, #151515 70%);
+    background-size: 400% 400%;
+    mix-blend-mode: overlay; /* Ensures a layered, contrasting effect */
+    z-index: -1; /* Behind content */
+    animation: scrollBackground 8s infinite ease-in-out;
+}
+
+/* More Contrasting and Wavy Shapes */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, #202020, transparent 70%),
+                radial-gradient(circle at 80% 70%, #333333, transparent 80%);
+    background-blend-mode: screen;
+    z-index: -2; /* Farther behind */
+    opacity: 0.7;
+}
+
+/* Background Animation */
+@keyframes scrollBackground {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
     }
 }
