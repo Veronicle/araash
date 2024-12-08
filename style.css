@@ -356,7 +356,7 @@ body::before {
     width: 100%;
     height: 100%;
     background: radial-gradient(circle at 20% 30%, #1e1f25, transparent 60%),
-                radial-gradient(circle at 80% 70%, #363643, transparent 70%),
+                radial-gradient(circle at 80% 70%, #121213, transparent 70%),
                 linear-gradient(135deg, #0a0a0a, #1a1a1a, #0a0a0a);
     background-size: 300% 300%; /* Larger size for smooth animation */
     z-index: -1;
@@ -616,4 +616,56 @@ footer a:hover {
     opacity: 0; /* Fade-in for captions */
     animation: fadeInEffect 1.5s forwards;
     animation-delay: 1.5s; /* Slight delay for captions */
+}
+
+/* General Mobile Styles */
+@media (max-width: 768px) {
+    /* Container adjustments for smaller screens */
+    .container {
+        padding: 10px; /* Add some padding to avoid content touching edges */
+    }
+
+    /* Reduce text size for smaller screens */
+    .content h1 {
+        font-size: 2.5rem; /* Scale down the main heading */
+    }
+
+    .intro {
+        font-size: 1rem; /* Reduce intro text size */
+        line-height: 1.5; /* Adjust line spacing for readability */
+    }
+
+    /* Adjust video container for smaller screens */
+    .video-container {
+        width: 100%; /* Take full width of the screen */
+        max-width: 350px; /* Limit max width on small devices */
+    }
+
+    .video-container iframe {
+        height: 200px; /* Adjust video height to maintain aspect ratio */
+    }
+
+    /* Sneaker Highlights Layout */
+    .sneaker-highlights {
+        flex-direction: column; /* Stack photos vertically */
+        gap: 10px; /* Reduce spacing between photos */
+    }
+
+    /* Sneaker Images */
+    .sneaker-image {
+        width: 100%; /* Take full width of the container */
+        max-width: 300px; /* Limit max width */
+        height: auto; /* Adjust height to maintain aspect ratio */
+    }
+
+    /* Footer Navigation */
+    footer nav {
+        display: flex;
+        justify-content: center; /* Center-align navigation links */
+        gap: 15px; /* Space between links */
+    }
+
+    footer a {
+        font-size: 0.9rem; /* Reduce font size for links */
+    }
 }
