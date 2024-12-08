@@ -254,6 +254,7 @@ body {
     letter-spacing: 0.15rem;
     animation: bounce 3s infinite alternate; /* Add subtle bounce */
     margin: 0;
+    opacity: 0;
 }
 
 /* Introductory Text */
@@ -346,7 +347,7 @@ footer a:hover {
     }
 }
 
-/* Enhanced Background Gradient with Wave-Like Shapes */
+/* Dynamic Wavy Background */
 body::before {
     content: "";
     position: fixed;
@@ -354,15 +355,15 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(25, 25, 25, 0.8), #050505 80%), 
-                linear-gradient(135deg, #151515, #0a0a0a 40%, #151515 70%);
-    background-size: 400% 400%;
-    mix-blend-mode: overlay; /* Ensures a layered, contrasting effect */
-    z-index: -1; /* Behind content */
-    animation: scrollBackground 8s infinite ease-in-out;
+    background: radial-gradient(circle at 20% 30%, #1e1f25, transparent 60%),
+                radial-gradient(circle at 80% 70%, #363643, transparent 70%),
+                linear-gradient(135deg, #0a0a0a, #1a1a1a, #0a0a0a);
+    background-size: 300% 300%; /* Larger size for smooth animation */
+    z-index: -1;
+    animation: waveAnimation 8s infinite ease-in-out;
 }
 
-/* More Contrasting and Wavy Shapes */
+/* Additional Layer for Depth */
 body::after {
     content: "";
     position: fixed;
@@ -370,15 +371,16 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 20% 50%, #202020, transparent 70%),
-                radial-gradient(circle at 80% 70%, #333333, transparent 80%);
-    background-blend-mode: screen;
-    z-index: -2; /* Farther behind */
-    opacity: 0.7;
+    background: radial-gradient(circle at 30% 60%, rgba(94, 59, 59, 0.8), transparent 80%),
+                radial-gradient(circle at 70% 20%, rgba(50, 50, 50, 0.6), transparent 70%);
+    background-size: 400% 400%;
+    z-index: -2;
+    animation: waveAnimationReverse 12s infinite ease-in-out;
+    opacity: 0.6; /* Subtle layer */
 }
 
-/* Background Animation */
-@keyframes scrollBackground {
+/* Wave Animation */
+@keyframes waveAnimation {
     0% {
         background-position: 0% 0%;
     }
@@ -388,4 +390,230 @@ body::after {
     100% {
         background-position: 0% 0%;
     }
+}
+
+@keyframes waveAnimationReverse {
+    0% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 100% 0%;
+    }
+}
+
+/* Graph Fade-In Animation */
+.graph-container {
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Slightly shifted downward */
+    animation: fadeInGraph 2s forwards; /* Apply fade-in animation */
+    animation-delay: 1.5s; /* Delays slightly after the text */
+}
+
+/* Fade-in animation for the graph */
+@keyframes fadeInGraph {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Layout for Sneaker Highlights */
+/* Layout for Sneaker Highlights */
+.sneaker-highlights {
+    display: flex;
+    flex-wrap: wrap; /* Ensure photos wrap properly */
+    justify-content: center; /* Center images */
+    row-gap: 10px; /* Reduce vertical spacing between rows */
+    column-gap: 10px; /* Reduce horizontal spacing between columns */
+    margin-top: 20px;
+}
+
+/* Individual Sneaker Items */
+.sneaker-item {
+    margin: 0; /* Remove any additional spacing around each item */
+    padding: 0; /* Ensure no internal padding */
+}
+
+/* Sneaker Images */
+.sneaker-image {
+    width: 250px; /* Fixed width for uniformity */
+    height: 250px; /* Fixed height for cropping */
+    object-fit: cover; /* Crop images to fit */
+    border: 4px solid white; /* White border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Optional shadow */
+}
+
+
+/* Description for Sneaker Items */
+.sneaker-description {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    opacity: 0; /* Start hidden for fade-in */
+    transform: translateY(20px); /* Slight downward offset */
+    animation: fadeInCaption 2s forwards;
+    animation-delay: 1.5s; /* Delay to sync with the image */
+}
+
+
+/* Caption Fade-in Animation */
+@keyframes fadeInCaption {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Layout for Sneaker Highlights */
+.sneaker-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center images */
+    gap: 20px; /* Space between images */
+    margin-top: 20px;
+}
+
+/* Fade-in Animation for Photos */
+@keyframes fadeInPhoto {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Footer Styling - Right Aligned */
+footer {
+    position: fixed; /* Keep the footer visible while scrolling */
+    bottom: 20px; /* Position at the bottom */
+    right: 20px; /* Align to the right side of the page */
+    text-align: right; /* Align text inside the footer to the right */
+}
+
+footer nav {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    gap: 10px; /* Add spacing between links */
+}
+
+footer a {
+    color: #aaaaaa;
+    text-decoration: none; /* Remove underline */
+    font-size: 1rem;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffffff; /* Highlight color on hover */
+}
+
+/* Video Container */
+.video-container {
+    margin: 20px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 560px; /* Limit video size */
+}
+
+.video-container iframe {
+    width: 100%; /* Responsive width */
+    height: 315px; /* Responsive height */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Optional: Add shadow for depth */
+}
+
+/* Fade-In Animation for All Elements */
+.fade-in {
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Slight downward offset */
+    animation: fadeInEffect 1.5s forwards; /* Fade-in animation */
+}
+
+/* Delay fade-in for items like images or videos */
+.sneaker-item.fade-in, 
+.video-container.fade-in {
+    animation-delay: 1s; /* Adjust as needed */
+}
+
+/* Keyframes for Fade-In Effect */
+@keyframes fadeInEffect {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Video Styling */
+.video-container {
+    margin: 20px auto;
+    text-align: center;
+    width: 80%; /* Adjusted to make the video smaller */
+    max-width: 500px; /* Limit video width */
+    border: 4px solid white; /* Add white border */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Optional: Add shadow for depth */
+}
+
+.video-container iframe {
+    width: 100%; /* Responsive width */
+    height: 280px; /* Adjusted height to maintain aspect ratio */
+    border-radius: 8px; /* Matches the container’s rounded corners */
+}
+
+/* Layout for Sneaker Highlights */
+.sneaker-highlights {
+    display: flex;
+    flex-wrap: wrap; /* Allow photos to wrap */
+    justify-content: center; /* Center-align photos */
+    gap: 15px; /* Spacing between photos */
+    margin-top: 20px;
+}
+
+/* Individual Sneaker Items */
+.sneaker-item {
+    margin: 0; /* Remove additional spacing */
+    padding: 0; /* Ensure no internal padding */
+}
+
+/* Sneaker Images */
+.sneaker-image {
+    width: 150px; /* Fixed width for uniformity */
+    height: 150px; /* Fixed height for cropping */
+    object-fit: cover; /* Crop images to fit */
+    border: 4px solid white; /* White border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Optional shadow */
+}
+
+/* Description for Sneaker Items */
+.sneaker-description {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    opacity: 0; /* Fade-in for captions */
+    animation: fadeInEffect 1.5s forwards;
+    animation-delay: 1.5s; /* Slight delay for captions */
 }

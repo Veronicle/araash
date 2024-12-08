@@ -15,12 +15,16 @@
             <h1>Arrow11</h1>
             <p class="intro">Arrow11 is my personal investment fund. Learn more at <a href="http://arrow11.com" target="_blank" class="email">arrow11.com</a>.</p>
             <p class="intro">Below is a visualization of the average monthly return for the fund since June.</p>
-            <canvas id="monthlyReturnChart" width="400" height="200"></canvas>
+            <!-- Add a wrapper div for the graph -->
+            <div class="graph-container">
+                <canvas id="monthlyReturnChart" width="300" height="150"></canvas>
+            </div>
+            <p class="intro">Contact me for live access to trade recommendations.</p>
+
         </div>
         <footer>
             <nav>
-                <a href="index.html">Home</a>
-
+                <a href="index.html">return</a>
             </nav>
         </footer>
     </div>
@@ -32,48 +36,44 @@
             data: {
                 labels: ['June', 'July', 'August', 'September', 'October', 'November'],
                 datasets: [{
-                    label: 'Average Return on Trades (%)',
+                    label: 'Average Monthly Return (%)',
                     data: [-20, 50, 20, -10, 80, 130],
-                    backgroundColor: [
-                        'rgba(75, 192, 192, 0.6)',  // Teal for positive returns
-                        'rgba(75, 192, 192, 0.6)',
-                        'rgba(75, 192, 192, 0.6)',
-                        'rgba(255, 99, 132, 0.6)',  // Red for negative returns
-                        'rgba(75, 192, 192, 0.6)',
-                        'rgba(75, 192, 192, 0.6)'
-                    ],
-                    borderColor: [
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(255, 99, 132, 1)', // Red border for negative returns
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(75, 192, 192, 1)'
-                    ],
+                    backgroundColor: function(context) {
+                        const value = context.raw; // Access the data value
+                        return value < 0 ? 'rgba(150, 50, 50, 0.8)' : 'rgba(192, 192, 192, 0.8)'; // Red for negative, silver for positive
+                    },
+                    borderColor: function(context) {
+                        const value = context.raw; // Access the data value
+                        return value < 0 ? 'rgba(150, 50, 50, 1)' : 'rgba(220, 220, 220, 1)'; // Bold red for negative, light silver for positive
+                    },
                     borderWidth: 1
                 }]
             },
             options: {
                 scales: {
                     x: {
-                        ticks: { color: '#ffffff' },
-                        grid: { color: 'rgba(255, 255, 255, 0.2)' }
+                        ticks: { color: '#ffffff' }, // White x-axis labels
+                        grid: { color: 'rgba(255, 255, 255, 0.2)' } // Light grid lines
                     },
                     y: {
-                        ticks: { color: '#ffffff', callback: (value) => `${value}%` },
-                        grid: { color: 'rgba(255, 255, 255, 0.2)' }
+                        ticks: { 
+                            color: '#ffffff', // White y-axis labels
+                            callback: (value) => `${value}%` // Add % sign
+                        },
+                        grid: { color: 'rgba(255, 255, 255, 0.2)' } // Light grid lines
                     }
                 },
                 plugins: {
                     legend: {
                         labels: {
-                            color: '#ffffff'
+                            color: '#ffffff' // White legend text
                         }
                     }
                 }
             }
         });
     </script>
+    
+    
 </body>
 </html>
-
