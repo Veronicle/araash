@@ -348,6 +348,7 @@ footer a:hover {
 }
 
 /* Dynamic Wavy Background */
+/* Main Background with Animated Gradients */
 body::before {
     content: "";
     position: fixed;
@@ -355,32 +356,29 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 20% 30%, #1e1f25, transparent 60%),
-                radial-gradient(circle at 80% 70%, #121213, transparent 70%),
-                linear-gradient(135deg, #0a0a0a, #1a1a1a, #0a0a0a);
-    background-size: 300% 300%; /* Larger size for smooth animation */
-    z-index: -1;
-    animation: waveAnimation 8s infinite ease-in-out;
+    background: linear-gradient(135deg, #0a0a0a, #120d48, #0f0f0f);
+    background-size: 300% 300%; /* Larger gradient for smooth animation */
+    z-index: -2; /* Behind all content */
+    animation: gradientShift 10s infinite ease-in-out;
 }
 
-/* Additional Layer for Depth */
+/* Abstract Circles for Modern Effect */
 body::after {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 30% 60%, rgba(94, 59, 59, 0.8), transparent 80%),
-                radial-gradient(circle at 70% 20%, rgba(50, 50, 50, 0.6), transparent 70%);
-    background-size: 400% 400%;
-    z-index: -2;
-    animation: waveAnimationReverse 12s infinite ease-in-out;
-    opacity: 0.6; /* Subtle layer */
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(29, 17, 93, 0.3), transparent 60%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    animation: pulseEffect 6s infinite ease-in-out;
 }
 
-/* Wave Animation */
-@keyframes waveAnimation {
+/* Gradient Animation */
+@keyframes gradientShift {
     0% {
         background-position: 0% 0%;
     }
@@ -392,17 +390,22 @@ body::after {
     }
 }
 
-@keyframes waveAnimationReverse {
+/* Circle Pulsing Animation */
+@keyframes pulseEffect {
     0% {
-        background-position: 100% 0%;
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
     }
     50% {
-        background-position: 0% 100%;
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.5;
     }
     100% {
-        background-position: 100% 0%;
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
     }
 }
+
 
 /* Graph Fade-In Animation */
 .graph-container {
